@@ -2,12 +2,6 @@ import styled from 'styled-components';
 import { StyledNotificationInterface } from '../../interfaces/interfaces';
 
 export const StyledNotification = styled.div<StyledNotificationInterface>`
-   .notification-container {
-      font-size: 14px;
-      box-sizing: border-box;
-      position: fixed;
-      z-index: 10;
-   }
    .top-right {
       top: 10px;
       right: 10px;

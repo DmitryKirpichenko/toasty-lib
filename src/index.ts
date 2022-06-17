@@ -1,1 +1,1 @@
-export { toast } from './container/LogicNotification';
+export { toast } from './NotificationClass/NotificationClass';

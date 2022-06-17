@@ -1,5 +1,5 @@
 import React from 'react';
-import { Notification } from '../components/Notification/Notification';
+import { NotificationContainer } from '../container/NotificationContainer/NotificationContainer'; 
 import { Portal } from '../portal/portal';
 const errorIcon = require('../images/svg/error.svg') as string;
 const infoIcon = require('../images/svg/info.svg') as string;
@@ -18,14 +18,14 @@ import {
 
 let toastList: string[] = [];
 
-class LogicNotification {
+class NotificationClass {
    toastList: string[] | undefined;
-   private static singleton: LogicNotification;
+   private static singleton: NotificationClass;
    constructor(toastList: string[]) {
-      if (LogicNotification.singleton) {
-         return LogicNotification.singleton;
+      if (NotificationClass.singleton) {
+         return NotificationClass.singleton;
       }
-      LogicNotification.singleton = this;
+      NotificationClass.singleton = this;
       this.toastList = toastList;
    }
 
@@ -127,7 +127,7 @@ class LogicNotification {
 
       return (
          <Portal>
-            <Notification
+            <NotificationContainer
                toastList={toastList}
                position={prop.position}
                autoDelete={prop.autoDelete}
@@ -139,4 +139,4 @@ class LogicNotification {
    }
 }
 
-export const toast = new LogicNotification(toastList);
+export const toast = new NotificationClass(toastList);

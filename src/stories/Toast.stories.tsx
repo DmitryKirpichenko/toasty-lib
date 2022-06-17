@@ -1,4 +1,4 @@
-import { toast } from '../container/LogicNotification';
+import { toast } from '../NotificationClass/NotificationClass';
 
 export default {
    title: 'Toast',
