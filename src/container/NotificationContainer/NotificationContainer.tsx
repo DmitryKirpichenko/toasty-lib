@@ -1,22 +1,17 @@
 import React, { useState, useEffect, FC } from 'react';
-import { NotificationInterface } from '../../interfaces/interfaces';
 import { StyledNotification } from './StyleNotification';
-import { CloseButton } from '../../components/CloseButton/CloseButton';
-import { Title } from '../../components/Title/Title';
-import { Message } from '../../components/Message/Message';
-import { Image } from '../../components/Image/Image';
 import ErrorBoundary from '../../ErrorBoundary/ErrorBoundary';
 import { Notification } from '../../components/Notification/Notification';
+import { NotificationContainerInterface } from '../../interfaces/interfaces';
 
-
-export const NotificationContainer: FC<NotificationInterface> =
+export const NotificationContainer: FC<NotificationContainerInterface> =
    ({ toastList,
       position,
       autoDelete,
       autoDeleteTime,
       animation  }) => {
 
-      const [list, setList] = useState([toastList]);
+      const [list, setList] = useState(toastList);
 
       useEffect(() => {
          setList([...toastList]);

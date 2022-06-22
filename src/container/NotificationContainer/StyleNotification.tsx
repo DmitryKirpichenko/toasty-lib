@@ -49,6 +49,9 @@ export const StyledNotification = styled.div<StyledNotificationInterface>`
       height: 50px;
       width: 365px;
       color: black;
+      cursor: grab;
+      cursor: grabbing;
+      user-select: none;
    }
    @keyframes toast-in-right {
       from {

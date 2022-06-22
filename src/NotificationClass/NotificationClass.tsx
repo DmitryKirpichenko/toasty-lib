@@ -1,6 +1,7 @@
 import React from 'react';
-import { NotificationContainer } from '../container/NotificationContainer/NotificationContainer'; 
 import { Portal } from '../portal/portal';
+import { NotificationContainer} from '../container/NotificationContainer/NotificationContainer'; 
+import { ClassPropInterface, ClassListInterface  } from '../interfaces/interfaces';
 const errorIcon = require('../images/svg/error.svg') as string;
 const infoIcon = require('../images/svg/info.svg') as string;
 const warningIcon = require('../images/svg/warning.svg') as string;
@@ -16,12 +17,12 @@ import {
    WARNING
 } from '../constants/index'
 
-let toastList: string[] = [];
+let toastList: ClassListInterface[] = [];
 
 class NotificationClass {
-   toastList: string[] | undefined;
+   toastList: ClassListInterface[] | undefined;
    private static singleton: NotificationClass;
-   constructor(toastList: string[]) {
+   constructor(toastList: ClassListInterface[]) {
       if (NotificationClass.singleton) {
          return NotificationClass.singleton;
       }
@@ -29,11 +30,11 @@ class NotificationClass {
       this.toastList = toastList;
    }
 
-   getId() {
+   getId(): number {
       return Math.floor(Math.random() * 101);
    }
 
-   getTitleName(prop) {
+   getTitleName(prop: ClassPropInterface): string {
       switch (prop.type) {
          case SUCCESS:
             return 'Success';
@@ -48,7 +49,7 @@ class NotificationClass {
       }
    }
 
-   getTitleColor(prop) {
+   getTitleColor(prop: ClassPropInterface): string {
       switch (prop.type) {
          case SUCCESS:
             return 'WHITE';
@@ -63,7 +64,7 @@ class NotificationClass {
       }
    }
 
-   getBackgroundColor(prop) {
+   getBackgroundColor(prop: ClassPropInterface): string {
       switch (prop.type) {
          case SUCCESS:
             return GREEN;
@@ -78,7 +79,7 @@ class NotificationClass {
       }
    }
 
-   getIcon(prop) {
+   getIcon(prop: ClassPropInterface): string {
       switch (prop.type) {
          case SUCCESS:
             return successIcon;
@@ -93,19 +94,7 @@ class NotificationClass {
       }
    }
 
-   getIndent(prop) {
-      console.log(prop.position.split('-'))
-      switch (prop.position.split('-')[1]) {
-         case 'right':
-            return { name: 'right', indent: 10 };
-         case 'left':
-            return { name: 'left', indent: 10 };
-         default:
-            return { name: 'left', indent: 10 };
-      }
-   }
-
-   getProp(desc, prop) {
+   getProp(desc: string, prop: ClassPropInterface): ClassListInterface {
       return {
          ...prop,
          id: prop.toastId || this.getId(),
@@ -116,11 +105,10 @@ class NotificationClass {
          descColor: this.getTitleColor(prop),
          backgroundColor: this.getBackgroundColor(prop),
          icon: this.getIcon(prop),
-         indent: this.getIndent(prop),
       };
    }
 
-   showToast(desc, prop) {
+   showToast(desc: string, prop: ClassPropInterface) {
       if (toastList.length < 5) {
          toastList = [...toastList, this.getProp(desc, prop)];
       }
