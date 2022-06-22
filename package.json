@@ -2,11 +2,14 @@
   "name": "toast-lib-task",
   "version": "1.0.0",
   "description": "",
+  "homepage": "http://DmitryKirpichenko.github.io/toasty-lib",
   "scripts": {
     "rollup": "rollup -c",
     "lint": "eslint src/**/* --ext .ts,.tsx --fix",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "predeploy": "yarn build-storybook",
+    "deploy": "gh-pages -d storybook-static"
   },
   "author": "Kirpichenko",
   "license": "ISC",
@@ -44,6 +47,7 @@
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-storybook": "^0.5.7",
+    "gh-pages": "^4.0.0",
     "identity-obj-proxy": "^3.0.0",
     "prettier": "^2.6.0",
     "react": "^17.0.2",
