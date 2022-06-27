@@ -1,6 +1,5 @@
 import React, { useState, useEffect, FC } from 'react';
 import { StyledNotification } from './StyleNotification';
-import ErrorBoundary from '../../ErrorBoundary/ErrorBoundary';
 import { Notification } from '../../components/Notification/Notification';
 import { NotificationContainerInterface } from '../../interfaces/interfaces';
 
@@ -67,7 +66,8 @@ export const NotificationContainer: FC<NotificationContainerInterface> =
                                    mouseDownHandel={mouseDownHandel} 
                                    mouseUpHandel={mouseUpHandel}
                                    position={position}
-                                   ClickHandel={ClickHandel}/>
+                                   ClickHandel={ClickHandel}
+                                   key={toast.id + 1}/>
                   ))}
                </div>
             </StyledNotification>

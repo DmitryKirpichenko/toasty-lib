@@ -16,7 +16,6 @@ export const Notification: FC<NotificationInterface> =
          //<ErrorBoundary>
 
          <div
-            key={toast.id + 1}
             id={(toast.id + 1).toString()}
             className={`notification toast ${position}`}
             style={{

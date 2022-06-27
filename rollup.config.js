@@ -30,7 +30,9 @@ export default [
             tsconfig: './tsconfig.json',
          }),
          postcss(),
-         svg(),
+         svg({
+            base64:true
+         }),
          peerDepsExternal({
             packageJsonPath: './package.json',
           }),
@@ -49,42 +51,42 @@ export default [
       plugins: [dts()],
       external: [/\.(css|less|scss)$/],
    },
-   {
-      input: 'src/images/svg/error.svg',
-      output: [{ file: 'dist/@types/error.svg' }],
-      plugins: [svg(),peerDepsExternal(),],
-   },
-   {
-      input: 'src/images/svg/cross.svg',
-      output: [{ file: 'dist/@types/cross.svg', format: 'cjs' }],
-      plugins: [svg(),peerDepsExternal(),],
-   },
-   {
-      input: 'src/images/svg/info.svg',
-      output: [{ file: 'dist/@types/info.svg', format: 'es' }],
-      plugins: [svg(),peerDepsExternal(),],
-   },
-   {
-      input: 'src/images/svg/success.svg',
-      output: [{ file: 'dist/@types/success.svg', format: 'es' }],
-      plugins: [svg(),peerDepsExternal(),],
-   },
-   {
-      input: 'src/images/svg/warning.svg',
-      output: [{ file: 'dist/@types/warning.svg', format: 'es' }],
-      plugins: [svg(),peerDepsExternal(),],
-   },
-   {
-      input: 'src/@types/assets/index.d.ts',
-      output: [{ file: 'dist/@types/assets/index.d.ts', format: 'es' }],
-      plugins: [
-         resolve(),
-         commonjs(),
-         typescript({
-            tsconfig: './tsconfig.json',
-         }),
-         peerDepsExternal({
-            packageJsonPath: './package.json',
-          }),],
-   },
+   // {
+   //    input: 'src/images/svg/error.svg',
+   //    output: [{ file: 'dist/@types/error.svg' }],
+   //    plugins: [svg(),peerDepsExternal(),],
+   // },
+   // {
+   //    input: 'src/images/svg/cross.svg',
+   //    output: [{ file: 'dist/@types/cross.svg', format: 'cjs' }],
+   //    plugins: [svg(),peerDepsExternal(),],
+   // },
+   // {
+   //    input: 'src/images/svg/info.svg',
+   //    output: [{ file: 'dist/@types/info.svg', format: 'es' }],
+   //    plugins: [svg(),peerDepsExternal(),],
+   // },
+   // {
+   //    input: 'src/images/svg/success.svg',
+   //    output: [{ file: 'dist/@types/success.svg', format: 'es' }],
+   //    plugins: [svg(),peerDepsExternal(),],
+   // },
+   // {
+   //    input: 'src/images/svg/warning.svg',
+   //    output: [{ file: 'dist/@types/warning.svg', format: 'es' }],
+   //    plugins: [svg(),peerDepsExternal(),],
+   // },
+   // {
+   //    input: 'src/@types/assets/index.d.ts',
+   //    output: [{ file: 'dist/@types/assets/index.d.ts', format: 'es' }],
+   //    plugins: [
+   //       resolve(),
+   //       commonjs(),
+   //       typescript({
+   //          tsconfig: './tsconfig.json',
+   //       }),
+   //       peerDepsExternal({
+   //          packageJsonPath: './package.json',
+   //        }),],
+   // },
 ];

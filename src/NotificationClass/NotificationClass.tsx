@@ -2,10 +2,10 @@ import React from 'react';
 import { Portal } from '../portal/portal';
 import { NotificationContainer} from '../container/NotificationContainer/NotificationContainer'; 
 import { ClassPropInterface, ClassListInterface  } from '../interfaces/interfaces';
-import errorIcon  from '../@types/error.svg'
-import infoIcon from '../@types/info.svg'
-import warningIcon from '../@types/warning.svg'
-import successIcon from '../@types/success.svg'
+import errorIcon  from '../images/svg/error.svg'
+import infoIcon from '../images/svg/info.svg'
+import warningIcon from '../images/svg/warning.svg'
+import successIcon from '../images/svg/success.svg'
 import {
    RED,
    YELLOW,

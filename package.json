@@ -1,6 +1,6 @@
 {
   "name": "react-toast-lib-kirpichenko",
-  "version": "1.0.13",
+  "version": "1.0.18",
   "description": "",
   "homepage": "http://DmitryKirpichenko.github.io/toasty-lib",
   "scripts": {
@@ -69,8 +69,7 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
-    "dist",
-    "src/images"
+    "dist"
   ],
   "types": "dist/index.d.ts",
   "repository": "https://github.com/DmitryKirpichenko/ToastLib.git",
