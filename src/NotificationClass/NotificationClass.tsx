@@ -2,10 +2,10 @@ import React from 'react';
 import { Portal } from '../portal/portal';
 import { NotificationContainer} from '../container/NotificationContainer/NotificationContainer'; 
 import { ClassPropInterface, ClassListInterface  } from '../interfaces/interfaces';
-const errorIcon = require('../images/svg/error.svg') as string;
-const infoIcon = require('../images/svg/info.svg') as string;
-const warningIcon = require('../images/svg/warning.svg') as string;
-const successIcon = require('../images/svg/success.svg') as string;
+import errorIcon  from '../@types/error.svg'
+import infoIcon from '../@types/info.svg'
+import warningIcon from '../@types/warning.svg'
+import successIcon from '../@types/success.svg'
 import {
    RED,
    YELLOW,

@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import React, { useEffect, FC } from 'react';
 import { createPortal } from 'react-dom';
 
-export const Portal = ({ children }) => {
+export const Portal: FC<{children: React.ReactElement}> = ({ children }) => {
     const cont = document.createElement('div');
     document.body.appendChild(cont);
     cont.setAttribute('id', 'toast-root');

@@ -13,6 +13,7 @@
       "moduleResolution": "node",
       "allowSyntheticDefaultImports": true,
       "emitDeclarationOnly": true,
-      "noImplicitAny": true
+      "noImplicitAny": true,
+      "typeRoots": ["./src/@types", "./node_modules/@types"]
    }
 }

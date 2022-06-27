@@ -1,7 +1,7 @@
 import React, { useState, useEffect, FC } from 'react';
 import { CloseButtonInterface } from '../../interfaces/interfaces';
 import { StyledCloseButton } from './StyleCloseButton';
-const crossIcon = require('../../images/svg/cross.svg') as string;
+import crossIcon from '../../@types/cross.svg'
 
 export const CloseButton:FC<CloseButtonInterface> = ({id, color, onClick}) => {
     return (
