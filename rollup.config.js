@@ -4,10 +4,9 @@ import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 import dts from 'rollup-plugin-dts';
 import svg from 'rollup-plugin-svg';
-import { getFiles } from './utils/getFiles';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
 const packageJson = require('./package.json');
-const extensions = ['.js', '.ts', '.jsx', '.tsx', '.svg'];
 
 export default [
    {
@@ -32,7 +31,12 @@ export default [
          }),
          postcss(),
          svg(),
+         peerDepsExternal({
+            packageJsonPath: './package.json',
+          }),
       ],
+      external:['react', 'react-dom', 'styled'],
+      globals:{'react':'React', 'react-dom':'React-Dom', 'styled':'styled-components'}
    },
    {
       input: "dist/esm/types/index.d.ts",
@@ -48,26 +52,39 @@ export default [
    {
       input: 'src/images/svg/error.svg',
       output: [{ file: 'dist/@types/error.svg' }],
-      plugins: [svg()],
+      plugins: [svg(),peerDepsExternal(),],
    },
    {
       input: 'src/images/svg/cross.svg',
       output: [{ file: 'dist/@types/cross.svg', format: 'cjs' }],
-      plugins: [svg()],
+      plugins: [svg(),peerDepsExternal(),],
    },
    {
       input: 'src/images/svg/info.svg',
       output: [{ file: 'dist/@types/info.svg', format: 'es' }],
-      plugins: [svg()],
+      plugins: [svg(),peerDepsExternal(),],
    },
    {
       input: 'src/images/svg/success.svg',
       output: [{ file: 'dist/@types/success.svg', format: 'es' }],
-      plugins: [svg()],
+      plugins: [svg(),peerDepsExternal(),],
    },
    {
       input: 'src/images/svg/warning.svg',
       output: [{ file: 'dist/@types/warning.svg', format: 'es' }],
-      plugins: [svg()],
+      plugins: [svg(),peerDepsExternal(),],
+   },
+   {
+      input: 'src/@types/assets/index.d.ts',
+      output: [{ file: 'dist/@types/assets/index.d.ts', format: 'es' }],
+      plugins: [
+         resolve(),
+         commonjs(),
+         typescript({
+            tsconfig: './tsconfig.json',
+         }),
+         peerDepsExternal({
+            packageJsonPath: './package.json',
+          }),],
    },
 ];
