@@ -11,6 +11,7 @@ export const Notification: FC<NotificationInterface> =
       mouseUpHandel,
       position,
       ClickHandel}) => {
+         
 
       return (
          //<ErrorBoundary>
@@ -22,8 +23,8 @@ export const Notification: FC<NotificationInterface> =
                backgroundColor: toast.backgroundColor,
                padding: toast.toastPadding,
             }}
-            onMouseDown={(e) => mouseDownHandel(e, toast.id + 1)}
-            onClick={(e) => mouseUpHandel(e, toast.id + 1)}
+            onMouseDown={mouseDownHandel()}
+            onClick={mouseUpHandel(toast.id + 1)}
          >
             <CloseButton id={toast.id} onClick={ClickHandel} color={toast.titleColor} />
 

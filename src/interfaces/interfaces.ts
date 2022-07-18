@@ -9,10 +9,10 @@ export interface NotificationContainerInterface {
 }
 export interface NotificationInterface {
     toast: ClassListInterface,
-    mouseDownHandel: (e: React.MouseEvent<HTMLDivElement, MouseEvent>, id: number) => void,
-    mouseUpHandel: (e: React.MouseEvent<HTMLDivElement, MouseEvent>, id: number) => void,
+    mouseDownHandel: () =>(e: React.MouseEvent<HTMLDivElement, MouseEvent>)=> void,
+    mouseUpHandel: (id: number) => (e: React.MouseEvent<HTMLDivElement, MouseEvent>)=> void,
     position: string,
-    ClickHandel: (e: React.MouseEvent<HTMLDivElement, MouseEvent>, id: number) => void
+    ClickHandel: (id: number) => (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 }
 export interface ClassPropInterface {
     toastId?: number,
@@ -38,7 +38,7 @@ export interface StyledNotificationInterface {
 }
 export interface CloseButtonInterface {
     id: number;
-    onClick: (e: React.SyntheticEvent, id: number) => void;
+    onClick: (id: number) => (e: React.SyntheticEvent) => void;
     color: string;
 }
 export interface TitleInterface {

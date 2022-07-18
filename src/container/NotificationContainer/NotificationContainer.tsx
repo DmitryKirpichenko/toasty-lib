@@ -36,13 +36,14 @@ export const NotificationContainer: FC<NotificationContainerInterface> =
          setList([...list]);
       };
 
-      function ClickHandel(e: React.SyntheticEvent, id: number) {
+      const ClickHandel = (id: number) => (e: React.SyntheticEvent) => {
          deleteToast(id)
       }
 
       let mouseX: number
 
-      function mouseUpHandel(e:React.MouseEvent<HTMLDivElement, MouseEvent>, id: number){
+      const  mouseUpHandel = (id: number) => (e:React.MouseEvent<HTMLDivElement, MouseEvent>) =>{
+         console.log('11111')
          if(Math.abs(mouseX - e.clientX) > 50){
             if(mouseX - e.clientX < 0) document.getElementById(`${id}`).classList.add('close-rigth')
             else document.getElementById(`${id}`).classList.add('close-left')
@@ -53,7 +54,8 @@ export const NotificationContainer: FC<NotificationContainerInterface> =
          
       }
 
-      function mouseDownHandel(e:React.MouseEvent<HTMLDivElement, MouseEvent>, id: number){
+      const  mouseDownHandel = () => (e:React.MouseEvent<HTMLDivElement, MouseEvent>) =>{
+         console.log('22222')
          mouseX = e.clientX
       }
 
