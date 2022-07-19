@@ -1,8 +1,10 @@
 import React, {FC} from 'react';
+
 import { CloseButton } from '../CloseButton/CloseButton';
 import { Title } from '../Title/Title';
 import { Message } from '../Message/Message';
 import { Image } from '../Image/Image';
+
 import { NotificationInterface } from '../../interfaces/interfaces';
 
 export const Notification: FC<NotificationInterface> =

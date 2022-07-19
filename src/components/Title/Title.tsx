@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { TitleInterface } from '../../interfaces/interfaces';
 import { StyledTitle } from './StyleTitle';
 

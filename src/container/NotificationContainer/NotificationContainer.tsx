@@ -1,4 +1,5 @@
 import React, { useState, useEffect, FC } from 'react';
+
 import { StyledNotification } from './StyleNotification';
 import { Notification } from '../../components/Notification/Notification';
 import { NotificationContainerInterface } from '../../interfaces/interfaces';
@@ -43,7 +44,6 @@ export const NotificationContainer: FC<NotificationContainerInterface> =
       let mouseX: number
 
       const  mouseUpHandel = (id: number) => (e:React.MouseEvent<HTMLDivElement, MouseEvent>) =>{
-         console.log('11111')
          if(Math.abs(mouseX - e.clientX) > 50){
             if(mouseX - e.clientX < 0) document.getElementById(`${id}`).classList.add('close-rigth')
             else document.getElementById(`${id}`).classList.add('close-left')
@@ -55,7 +55,6 @@ export const NotificationContainer: FC<NotificationContainerInterface> =
       }
 
       const  mouseDownHandel = () => (e:React.MouseEvent<HTMLDivElement, MouseEvent>) =>{
-         console.log('22222')
          mouseX = e.clientX
       }
 

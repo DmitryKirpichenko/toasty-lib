@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { ImageInterface } from '../../interfaces/interfaces';
 import { StyledImage } from './StyleImage';
 
